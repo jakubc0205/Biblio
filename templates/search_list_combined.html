@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %} 
+<div class="jumbotron">
+<form method="post">
+    {{ form.hidden_tag() }}
+    {{ form.search.label }} {{ form.search() }} 
+    {{ form.search1.label }} {{ form.search1() }} 
+    {{ form.search2.label }} {{ form.search2() }} 
+    {{ form.search3.label }} {{ form.search3() }} 
+    {{ form.search4.label }} {{ form.search4() }}
+    {{ form.submit() }} 
+    {% if results %} 
+    <table class="table table-success table-striped table-bordered">
+        <thead>   
+        <th scope="col">ID</th>  
+        <th scope="col">Autor</th>  
+        <th scope="col">Tytul</th>    
+        <th scope="col">Data Publikacji</th>   
+        <th scope="col">ISBN</th>   
+        <th scope="col">Liczba stron</th> 
+        <th scope="col">Link do okladki</th>  
+        <th scope="col">Jezyk</th> 
+        <tr style="color: black; ">
+        <tr> 
+        {% for book in results %}   
+        <td>
+        {{book.id}}
+        </td>
+        <td>
+        {{book.autor}}
+        </td>  
+        <td>
+        {{book.tytul}}
+        </td>  
+        <td>
+        {{book.data_pub}}
+        </td> 
+        <td>
+        {{book.ISBN_num}}
+        </td>   
+        <td>
+        {{book.liczba_stron}}
+        </td>  
+        <td>
+        {{book.okladka}}
+        </td>  
+        <td>
+        {{book.jezyk}}
+        </td> 
+        </tr>    
+        {% endfor %}      
+    {% endif %}
+</form>   
+</div> 
+{% if not results %} 
+<div class="jumbotron">
+    <h1>Oto lista wszystkich dostepnych pozycji</h1> 
+    <table class="table table-success table-striped table-bordered">
+        <thead>   
+        <th scope="col">ID</th>  
+        <th scope="col">Autor</th>  
+        <th scope="col">Tytul</th>    
+        <th scope="col">Data Publikacji</th>   
+        <th scope="col">ISBN</th>   
+        <th scope="col">Liczba stron</th>
+        <th scope="col">Link do okladki</th>  
+        <th scope="col">Jezyk</th> 
+        <tr style="color: black; ">
+        <tr> 
+        {% for book in ksiazki %}   
+        <td>
+        {{book.id}}
+        </td>
+        <td>
+        {{book.autor}}
+        </td>  
+        <td>
+        {{book.tytul}}
+        </td>  
+        <td>
+        {{book.data_pub}}
+        </td> 
+        <td>
+        {{book.ISBN_num}}
+        </td>   
+        <td>
+        {{book.liczba_stron}}
+        </td>  
+        <td>
+        {{book.okladka}}
+        </td>  
+        <td>
+        {{book.jezyk}}
+        </td> 
+        </tr>    
+        {% endfor %}      
+</div>          
+{% endif %}
+{% endblock %}

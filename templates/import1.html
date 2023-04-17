@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+{% block content %}     
+<div class="jumbotron">   
+  <p1> Prosze podac dokladny tytul i autora, zostanie zaimportowana 1 ksiazka</p1>  
+  <br>
+  <form method="POST"> 
+  {{form.hidden_tag()}} 
+  {{form.tytul.label}} {{form.tytul()}}  
+  {{form.autor.label}} {{form.autor()}}   
+  {{form.api.label}} {{form.api()}}  
+  {{form.submit()}}
+  </form> 
+</div>  
+{% endblock %} 

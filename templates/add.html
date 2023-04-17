@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+{%block content %} 
+<div class="jumbotron">    
+    <h1>Czy chcesz dodac nowa ksiazke ?</h1> 
+    <p>Wypelnij formularz</p> 
+    <form method="POST"> 
+        {{form.hidden_tag()}} 
+        {{form.tytul.label}}{{form.tytul()}}  
+        {{form.autor.label}}{{form.autor()}}   
+        {{form.data_pub.label}}{{form.data_pub()}}   
+        {{form.ISBN_num.label}}{{form.ISBN_num()}}   
+        {{form.liczba_stron.label}}{{form.liczba_stron()}}   
+        {{form.okladka.label}}{{form.okladka()}}  
+        {{form.jezyk.label}}{{form.jezyk()}}  
+        {{form.submit()}}  
+    </form>
+</div> 
+{% endblock %} 
+
+

@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+{%block content %} 
+<div class="jumbotron"> 
+    <h1> Czy ksiazka powinna zostac usunieta ?</h1> 
+    <p>Jezeli tak, prosze wypelnic formule</p> 
+    <form method="POST"> 
+        {{form.hidden_tag()}} 
+        {{form.id.label}}{{form.id()}} 
+        {{form.submit()}} 
+
+    </form>
+</div> 
+{% endblock %}
